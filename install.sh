@@ -2,13 +2,13 @@
 NVIM_DIR="$HOME/.config/nvim"
 TMUX_PATH="$HOME/.tmux.conf"
 ZSH_PATH="$HOME/.zshrc"
-
+current_dir=$(pwd)
 function linkingTmux(){
-        if [ -e ~/.tmux.conf ]
+        if [ -e "$HOME/.tmux.conf" ]
         then
             rm $TMUX_PATH 
         fi
-       ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf 
+        ln -s "$current_dir/tmux/.tmux.conf" "$HOME/.tmux.conf"
 }
 #function to install neovim
 function installNeovim(){
@@ -22,7 +22,7 @@ fi
 }
 
 function installStow(){
-    echo checking to see if stow is installed.....
+    echo "checking to see if stow is installed..."
     if [[ $(uname -s) == "Darwin" ]]
     then
         brew install stow
@@ -47,14 +47,14 @@ function linkNeovimConfig(){
 
 if [[ $(uname -s) == "Linux" ]] || [[ $(uname -s) == "Darwin" ]];
 then
-    echo setting up config
+    echo "setting up config"
     if which stow > /dev/null
     then
-        echo loading.....
+        echo "loading....."
     else
     installStow
     fi
-    echo checking to see if neovim is installed....
+    echo "checking to see if neovim is installed...."
     if which nvim > /dev/null
     then
        if [ -d $NVIM_DIR ] 
@@ -67,26 +67,25 @@ then
         echo "neovim is installing...."
         installNeovim
     fi
-    echo checking to see if tmux is installed.....
+    echo "checking to see if tmux is installed..."
     if which tmux > /dev/null
     then
-        echo tmux is installing....
+        echo "tmux is installing..."
         linkingTmux
     else
-        echo installing tmux....
-       echo loading....
+        echo "installing tmux..."
+       echo "loading...."
         tmuxInstalled
         linkingTmux
     fi
-if [ -e ~/.zshrc ]
+if [ -e $HOME/.zshrc ]
 then
-    rm $ZSH_PATH 
+    rm $ZSH_PATH
 fi
-ln -s zsh/.zshrc ~/.zshrc
 
-echo setup finish
+echo "setup finish"
 else 
-    echo this machine might be windows try running install.batch
+    echo "this machine might be windows try running install.batch"
 fi
 
 
