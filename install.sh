@@ -23,6 +23,7 @@ function installZsh(){
      sudo apt install zsh
  fi
  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 }
 #function to install neovim
 function installNeovim(){
@@ -34,6 +35,7 @@ then
     sudo apt install neovim
 fi
 
+sudo apt install gzip unzip
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 }

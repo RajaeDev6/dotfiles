@@ -56,6 +56,8 @@ packer.startup( function(use)
     use 'MichaelMure/mdr'
     use 'skanehira/preview-markdown.vim'
     
+    --comment
+    use 'numToStr/Comment.nvim'
 end)
 
 

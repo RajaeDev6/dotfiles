@@ -1,6 +1,4 @@
 require 'mason'.setup()
-require 'mason-lspconfig'. setup({
-    ensure_installed = {"sumneko_lua", "pyright", "tsserver", "cssls", "html", "clangd", "omnisharp" }})
 
 local on_attach = function(_, _)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
@@ -14,10 +12,15 @@ end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
---require 'lspconfig'.sumneko_lua.setup{
-  --  on_attach = on_attach,
-    --capabilities = capabilities
---}
+require 'lspconfig'.sumneko_lua.setup{
+    on_attach = on_attach,
+    capabilities = capabilities
+}
+require('lspconfig').bashls.setup{
+    on_attach = on_attach,
+    capabilities = capabilities
+}
+
 require('lspconfig').solargraph.setup {
     on_attach = on_attach,
     capabilities = capabilities,
@@ -25,7 +28,8 @@ require('lspconfig').solargraph.setup {
 require('lspconfig').astro.setup{
     on_attach = on_attach,
     capabilities = capabilities 
-}require('lspconfig').html.setup{
+}
+require('lspconfig').html.setup{
     on_attach = on_attach,
     capabilities = capabilities 
 }
@@ -34,8 +38,16 @@ require('lspconfig').pyright.setup{
     on_attach = on_attach,
     capabilities = capabilities 
 }
-
 require('lspconfig').tsserver.setup{
     on_attach = on_attach,
     capabilities = capabilities 
+}
+require('lspconfig').html.setup{
+    on_attach = on_attach,
+    capabilities = capabilites
+}
+
+require('lspconfig').tailwindcss.setup{
+    on_attach = on_attach,
+    capabilities = capabilites
 }
