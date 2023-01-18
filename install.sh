@@ -13,6 +13,17 @@ function linkingTmux(){
         echo "linking file"
         stow -t $HOME -v tmux
 }
+#install zsh
+function installZsh(){
+ if [[ $(uname -s) == "Darwin" ]];
+ then 
+     brew install zsh
+ elif [[ $(uname -s) == "Linux" ]];
+ then 
+     sudo apt install zsh
+ fi
+ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+}
 #function to install neovim
 function installNeovim(){
 if [[ $(uname -s) == "Darwin" ]];
@@ -84,6 +95,13 @@ then
         tmuxInstalled
         linkingTmux
     fi
+if [ -f "/usr/bin/zsh" ]
+then
+    echo "zsh installed"
+else
+    echo "zsh not installed"
+    installZsh
+fi
 if [ -e $HOME/.zshrc ]
 then
     echo "found a .zshrc file\nremoving it..."
