@@ -6,9 +6,12 @@ current_dir=$(pwd)
 function linkingTmux(){
         if [ -e "$HOME/.tmux.conf" ]
         then
+            echo "found a tmux.conf \n removing it..."
             rm $TMUX_PATH 
+            echo "file removed"
         fi
-        ln -s "$current_dir/tmux/.tmux.conf" "$HOME/.tmux.conf"
+        echo "linking file"
+        stow -t $HOME -v tmux
 }
 #function to install neovim
 function installNeovim(){
@@ -19,6 +22,9 @@ elif [[ $(uname -s) == "Linux" ]]
 then
     sudo apt install neovim
 fi
+
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 }
 
 function installStow(){
@@ -80,9 +86,12 @@ then
     fi
 if [ -e $HOME/.zshrc ]
 then
+    echo "found a .zshrc file\nremoving it..."
     rm $ZSH_PATH
+    echo "file removed"
 fi
-
+echo linking file...
+stow -t $HOME -v zsh
 echo "setup finish"
 else 
     echo "this machine might be windows try running install.batch"
