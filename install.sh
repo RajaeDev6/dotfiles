@@ -32,7 +32,11 @@ then
     brew insall neovim
 elif [[ $(uname -s) == "Linux" ]]
 then
-    sudo apt install neovim
+    sudo apt-get install gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl
+git clone https://github.com/neovim/neovim
+cd $HOME/neovim && make
+sudo make install
+cd $HOME/.dotfiles
 fi
 
 sudo apt install gzip unzip
