@@ -4,14 +4,15 @@
 
 ## contents
 
--Neovim config
--Zsh config
--tmux config
--install script (install.sh)
+ - Neovim config
+ - Zsh config
+ - tmux config
+ - install script (install.sh)
 
 
 ## Neovim setup
-**This uses [neovim](https://neovim.io) version 0.8 and higher**
+This uses [neovim](https://neovim.io) version 0.8 and higher
+
 my neovim config uses various plugins to make my workflow smooth
 
 Plugins that i use:
@@ -20,11 +21,11 @@ Plugins that i use:
 
 ## what i use to customize and work effectively in shell
 
--[nerd-fonts](https://github.com/ryanoasis/nerd-fonts) - Powerline patch fonts. I use meslo font
--[zsh]("https://www.zsh.org/") -i use the zsh shell because it is flexible and highly customizable
--[oh-my-zsh]("https://github.com/ohmyzsh/ohmyzsh") -i use to oh-my-zsh to customize shell
--[z]("https://github.com/rupa/z") -i use z to jump around in shell
--[tmux]("https://tmux.github.io/") -i use tmux because it is very flexible and it helps to get work done fast. tmux spit a single window into multiple panes, enabling users to run multiple commands and processes at the same time. This can greatly increase productivity, as users are able to work on multiple tasks and projects simultaneously
+ - [nerd-fonts](https://github.com/ryanoasis/nerd-fonts) - Powerline patch fonts. I use meslo font
+ - [zsh](https://www.zsh.org/) -i use the zsh shell because it is flexible and highly customizable
+ - [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) -i use to oh-my-zsh to customize shell
+ - [z](https://github.com/rupa/z) -i use z to jump around in shell
+ - [tmux](https://tmux.github.io/) -i use tmux because it is very flexible and it helps to get work done fast. tmux spit a single window into multiple panes, enabling users to run multiple commands and processes at the same time. This can greatly increase productivity, as users are able to work on multiple tasks and projects simultaneously
 
 ## Installation
 
@@ -35,11 +36,12 @@ Note that this script is very messy and as i just learn bash and thought this wa
 ## how to use this config
 
 clone this repo using
----bash
+---
     git clone https://github.com/yahoo100kkk/dotfiles.git
 ---
+
 After cloning the repo run the install script and it should automatically install 
----bash
+---
     ./install.sh
 ---
 ### What this script will install
@@ -52,7 +54,7 @@ After cloning the repo run the install script and it should automatically instal
     * gzip
 
 ## folder stucture
-___bash
+___
 |____install.sh
 |____nvim
 | | |__init.lua 
