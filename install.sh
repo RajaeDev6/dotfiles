@@ -32,6 +32,7 @@ then
     brew insall neovim
 elif [[ $(uname -s) == "Linux" ]]
 then
+    cd $HOME
     sudo apt-get install gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl
 git clone https://github.com/neovim/neovim
 cd $HOME/neovim && make
@@ -98,7 +99,7 @@ then
     else
         echo "installing tmux..."
        echo "loading...."
-        tmuxInstalled
+        tmuxInstall
         linkingTmux
     fi
 if [ -f "/usr/bin/zsh" ]
@@ -120,6 +121,4 @@ echo "setup finish"
 else 
     echo "this machine might be windows try running install.batch"
 fi
-
-
 
