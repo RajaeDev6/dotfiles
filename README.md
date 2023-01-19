@@ -16,8 +16,8 @@ This uses [neovim](https://neovim.io) version 0.8 and higher
 my neovim config uses various plugins to make my workflow smooth
 
 Plugins that i use:
-    * [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim) - Plugin manager
-    * [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) - use to set statusline
+   - [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim) - Plugin manager
+   - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) - use to set statusline
 
 ## what i use to customize and work effectively in shell
 
@@ -33,14 +33,12 @@ I create a simple bash script (install.sh) to install all packages that i use to
 
 Note that this script is very messy and as i just learn bash and thought this was a good little project to do so i wouldn't reccommend using it. If you look it over and decides to use it. Use at you own risk.
 
-## how to use this config
-
-clone this repo using
+### clone repo
 ---
     git clone https://github.com/yahoo100kkk/dotfiles.git
 ---
 
-After cloning the repo run the install script and it should automatically install 
+### run the install script 
 ---
     ./install.sh
 ---
