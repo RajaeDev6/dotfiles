@@ -6,8 +6,8 @@ fi
 export ZSH="$HOME/.oh-my-zsh"
 
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
-plugins=(git zsh-z)
+ZSH_THEME="fino"
+plugins=(git zsh-z python tmux)
 
 source $ZSH/oh-my-zsh.sh
 

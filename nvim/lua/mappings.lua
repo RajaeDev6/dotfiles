@@ -38,6 +38,10 @@ keymap('v', 'jj', '<Esc>')
 --source file
 keymap('n', '<leader>sv', ':so %<CR>')
 
+-- jump forward to identical word
+keymap('n', 'jf', 'g*')
+keymap('n', 'jb', 'g#')
+
 --search and replace
 keymap('n', "<leader>sr", ":%s/")
 --removing highlight from word

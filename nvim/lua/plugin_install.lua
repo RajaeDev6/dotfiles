@@ -53,9 +53,9 @@ packer.startup( function(use)
     use 'Yggdroot/indentLine'
     use 'norcalli/nvim-colorizer.lua'
     use 'aca/emmet-ls'
-    use 'MichaelMure/mdr'
-    use 'skanehira/preview-markdown.vim'
-    
+
+use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+
     --comment
     use 'numToStr/Comment.nvim'
 end)
