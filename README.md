@@ -1,7 +1,11 @@
 # My dotfiles
 
 **warning**: Please do now not use settings if you have no idea what it contains. Use at your own risk!!
+
+
 ![neovimImage](./images/image.jpg)
+![terminalImage](./images/terminalimage.jpg)
+
 ## contents
 
  - Neovim config
@@ -39,7 +43,7 @@ Plugins that i use:
 - [nvim-autopairs](https://www.github.com/nvim-autopairs) - Autoparis
 - [colorizer](https://www.github.com/colorizer) - a colour highlighter
 
-## what i use to customize and work effectively in shell
+### what i use to customize and work effectively in shell
 
  - [nerd-fonts](https://github.com/ryanoasis/nerd-fonts) - Powerline patch fonts. I use meslo font
  - [zsh](https://www.zsh.org/) -i use the zsh shell because it is flexible and highly customizable
