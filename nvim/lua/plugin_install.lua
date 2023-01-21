@@ -41,9 +41,19 @@ packer.startup( function(use)
     use {
         'hrsh7th/nvim-cmp',
         'hrsh7th/cmp-nvim-lsp',
+        'onsails/lspkind.nvim',
+        --luasnip
         'L3MON4D3/LuaSnip',
         'saadparwaiz1/cmp_luasnip',
-        'rafamadriz/friendly-snippets'
+
+       'rafamadriz/friendly-snippets',
+        --ultisnip
+        --'quangnguyen30192/cmp-nvim-ultisnips',
+        --'SirVer/ultisnips',
+
+        --snippy
+        --'dcampos/nvim-snippy',
+        --'dcampos/cmp-snippy',
     }
     --telescope
     use 'nvim-lua/plenary.nvim'
