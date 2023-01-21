@@ -30,6 +30,15 @@ for option, value in pairs(options) do
 	vim.opt[option] = value
 end
 
+vim.api.nvim_create_autocmd('TextYankPost',{
+    callback = function()
+        vim.highlight.on_yank({
+            higroup = 'IncSearch',
+            timeout = 200
+        })
+    end
+})
+
 vim.cmd[[highlight Cursorline gui=underline ctermbg=NONE guibg=NONE]]
 vim.cmd[[hi Normal guibg=NONE cterm=NONE]]
 vim.cmd[[set termguicolors]]

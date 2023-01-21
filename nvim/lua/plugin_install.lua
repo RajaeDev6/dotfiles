@@ -58,6 +58,7 @@ use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = fun
 
     --comment
     use 'numToStr/Comment.nvim'
+    use 'mg979/vim-visual-multi'
 end)
 
 
