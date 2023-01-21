@@ -19,7 +19,6 @@ source $ZSH/oh-my-zsh.sh
 
 alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 alias ll="ls -la"
-unalias gs
 alias gs="git status"
 alias ga="git add"
 alias gc="git commit"
