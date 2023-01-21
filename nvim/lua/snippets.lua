@@ -21,6 +21,9 @@ cmp.setup({
     sources= cmp.config.sources({
         { name = 'nvim-lsp' },
         {name = 'luasnip'},
+        {name = 'snippy'},
+        {name = 'vsnip'},
+        {name = 'ultisnips'},
     }, {
         { name = 'buffer' },
     }),

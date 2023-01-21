@@ -16,11 +16,7 @@ keymap('v', 'l', 'j')
 keymap('v', ';', 'l')
 --show recent files
 keymap('n', '<leader>fr', ':History<CR>')
-keymap('n', '<leader>frr', ':File<CR>')
---show files in current folder
-keymap('n', '<leader>tt', ':Telescope<CR>')
-keymap('n', 'fs', ':lua require"telescope.builtin".find_files()<CR>')
-keymap('n', '<leader>fs', ':lua require"telescope.builtin".live_grep()<CR>')
+keymap('n', '<leader>frr', ':Files<CR>')
 
 --open nvim-tree file explorer
 keymap('n', '<leader>e', ':NvimTreeToggle<CR>')
