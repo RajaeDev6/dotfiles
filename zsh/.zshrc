@@ -25,11 +25,12 @@ alias ga="git add"
 alias gc="git commit"
 alias cg="git checkout"
 alias gb="git branch"
-alias df="cd $HOME/dotfiles"
+alias df="cd $HOME/.dotfiles"
 
-
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias tc="nvim ~/.tmux.conf"
+alias zc="nvim ~/.zshrc"
+alias nc="nvim ~/.config/nvim/init.lua"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
