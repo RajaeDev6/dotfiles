@@ -1,8 +1,8 @@
 local options = {
-	number = true,
-	relativenumber = true,
+    number = true,
 	autoindent = true,
 	smartindent = true,
+    breakindent = true,
 	title = true,
 	shiftwidth = 4,
 	tabstop = 4,
@@ -10,11 +10,11 @@ local options = {
 	smarttab = true,
 	backup = false,
 	cursorline = true,
+    termguicolors = true,
 	splitright = true,
 	scrolloff = 5,
 	wrap = true,
 	fileencoding = 'utf-8',
-	termguicolors = true,
 	mouse ='a',
 	winblend = 0,
 	background = 'dark',
@@ -34,11 +34,12 @@ vim.api.nvim_create_autocmd('TextYankPost',{
     callback = function()
         vim.highlight.on_yank({
             higroup = 'IncSearch',
-            timeout = 200
+            timeout = 200,
         })
-    end
+        print("text copied")
+    end,
+    desc = "copy text"
 })
 
-vim.cmd[[highlight Cursorline gui=underline ctermbg=NONE guibg=NONE]]
-vim.cmd[[hi Normal guibg=NONE cterm=NONE]]
-vim.cmd[[set termguicolors]]
+
+
