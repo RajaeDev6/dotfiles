@@ -29,6 +29,7 @@ local options = {
 for option, value in pairs(options) do
 	vim.opt[option] = value
 end
+vim.api.nvim_command("filetype on")
 
 vim.api.nvim_create_autocmd('TextYankPost',{
     callback = function()

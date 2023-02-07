@@ -1,4 +1,5 @@
 require 'mason'.setup()
+local lspconfig = require("lspconfig")
 
 local on_attach = function(_, _)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
@@ -12,42 +13,55 @@ end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-require 'lspconfig'.sumneko_lua.setup{
+lspconfig.sumneko_lua.setup{
     on_attach = on_attach,
     capabilities = capabilities
 }
-require('lspconfig').bashls.setup{
+lspconfig.bashls.setup{
     on_attach = on_attach,
     capabilities = capabilities
 }
 
-require('lspconfig').solargraph.setup {
+lspconfig.solargraph.setup {
     on_attach = on_attach,
     capabilities = capabilities,
 }
-require('lspconfig').astro.setup{
+lspconfig.astro.setup{
     on_attach = on_attach,
     capabilities = capabilities 
 }
-require('lspconfig').html.setup{
+lspconfig.html.setup{
     on_attach = on_attach,
     capabilities = capabilities 
 }
 
-require('lspconfig').pyright.setup{
+lspconfig.pyright.setup{
     on_attach = on_attach,
     capabilities = capabilities 
 }
-require('lspconfig').tsserver.setup{
+lspconfig.tsserver.setup{
     on_attach = on_attach,
     capabilities = capabilities 
 }
-require('lspconfig').html.setup{
+lspconfig.html.setup{
     on_attach = on_attach,
     capabilities = capabilites
 }
 
-require('lspconfig').tailwindcss.setup{
+lspconfig.tailwindcss.setup{
     on_attach = on_attach,
     capabilities = capabilites
 }
+lspconfig.emmet_ls.setup({
+    -- on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+    init_options = {
+      html = {
+        options = {
+          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+          ["bem.enabled"] = true,
+        },
+      },
+    }
+})

@@ -12,7 +12,8 @@ packer.startup( function(use)
     use 'wbthomason/packer.nvim'
     --colorschemes
     use {
-        'morhetz/gruvbox', 'hachy/eva01.vim'
+        'morhetz/gruvbox', 'hachy/eva01.vim',
+        'ray-x/aurora'
         }
     --icons
     use 'nvim-tree/nvim-web-devicons'
@@ -25,8 +26,8 @@ packer.startup( function(use)
 
     use 'nvim-treesitter/nvim-treesitter'
     --auto close tags
-    use 'windwp/nvim-ts-autotag'
     use 'windwp/nvim-autopairs'
+    use 'windwp/nvim-ts-autotag'
     
     --tabs
     use 'romgrk/barbar.nvim'
@@ -42,6 +43,10 @@ packer.startup( function(use)
         'hrsh7th/nvim-cmp',
         'hrsh7th/cmp-nvim-lsp',
         'onsails/lspkind.nvim',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+
+
         --luasnip
         'L3MON4D3/LuaSnip',
         'saadparwaiz1/cmp_luasnip',
@@ -51,17 +56,24 @@ packer.startup( function(use)
         --'quangnguyen30192/cmp-nvim-ultisnips',
         --'SirVer/ultisnips',
 
+
         --snippy
         --'dcampos/nvim-snippy',
         --'dcampos/cmp-snippy',
     }
     --telescope
     use 'nvim-lua/plenary.nvim'
+    use 'nvim-lua/popup.nvim'
     use 'nvim-lua/telescope.nvim'
     use 'jremmen/vim-ripgrep'
-    use 'ThePrimeagen/vim-be-good'
+
+    --indentline
     use 'Yggdroot/indentLine'
+
+    --colorizer
     use 'norcalli/nvim-colorizer.lua'
+
+    --emmet
     use 'aca/emmet-ls'
 
 use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
@@ -69,9 +81,11 @@ use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = fun
     --comment
     use 'numToStr/Comment.nvim'
     use 'mg979/vim-visual-multi'
+
+    use 'jose-elias-alvarez/null-ls.nvim'
+    use 'MunifTanjim/prettier.nvim'
 end)
 
-
-require('nvim-autopairs').setup {}
-require'colorizer'.setup()
-vim.cmd [[let g:react_import_jsx#auto_complete = 1]]
+require("colorizer").setup {}
+require("nvim-autopairs").setup {}
+require("nvim-ts-autotag").setup {}

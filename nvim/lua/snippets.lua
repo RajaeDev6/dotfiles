@@ -1,8 +1,7 @@
 local cmp = require('cmp')
-
+local  luasnip = require("luasnip")
 require("luasnip.loaders.from_vscode").lazy_load()
-require('luasnip').filetype_extend("javascript", { "javascriptreact" })
-require('luasnip').filetype_extend("javascript", { "html" })
+luasnip.filetype_extend("javascript", { "javascriptreact","html", "typescriptreact", "typescript" })
 
 cmp.setup({
     mapping = {
@@ -15,18 +14,16 @@ cmp.setup({
 
     snippet = {
         expand = function(args)
-            require('luasnip').lsp_expand(args.body)
+            luasnip.lsp_expand(args.body)
             end,
     },
     sources= cmp.config.sources({
+        { name = 'path'},
         { name = 'nvim-lsp' },
-        {name = 'luasnip'},
-        {name = 'snippy'},
-        {name = 'vsnip'},
-        {name = 'ultisnips'},
-    }, {
-        { name = 'buffer' },
+        {name = 'luasnip', keyword_length = 2},
+        { name = 'buffer'},
     }),
+    
     window = {
         completion = cmp.config.window.bordered({border = double}),
         documentation = cmp.config.window.bordered()
@@ -35,8 +32,11 @@ cmp.setup({
         fields = {'menu', 'abbr', 'kind'},
         format = function(entry, item)
             local menu_icon = {
-                nvim_lsp = "A",
-                buffer = "b"
+                nvim_lsp = "[LSP]",
+                buffer = "[BUF]",
+                luasnip = "[LSNIP]",
+                vsnip = "[VSNIP]",
+                path = "[PATH]"
             }
         item.menu = menu_icon[entry.source.name]
         return item

@@ -51,4 +51,7 @@ keymap('t', '<leader>q', "<C-\\><C-n> :q!<CR>")
 keymap('n', '<leader>nn', ':BufferNext<CR>')
 keymap('n', '<leader>nw', ':tabnew<CR>')
 keymap('n', 'nb', ':BufferClose<CR>')
-keymap('n', 'vv', ':BufferPrevious<CR>')
+keymap('n', '<leader>vv', ':BufferPrevious<CR>')
+
+--toggle prettier
+keymap('n', '<leader>fm', ':Prettier<CR>')
