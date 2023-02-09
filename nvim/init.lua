@@ -9,5 +9,3 @@ require("snippets")
 require("mappings")
 require("telescope-config")
 require("comment")
-
-

@@ -1,5 +1,4 @@
 local status, packer = pcall(require, "packer")
-
 if (not status) then
 print('packer not installed')
     return
