@@ -34,6 +34,7 @@ alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias explorer="explorer.exe"
 alias subl="subl.exe"
 alias chrome="chrome.exe"
+alias ls="colorls --group-directories-first"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
