@@ -83,6 +83,7 @@ use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = fun
 
     use 'jose-elias-alvarez/null-ls.nvim'
     use 'MunifTanjim/prettier.nvim'
+    use 'tpope/vim-fugitive'
 end)
 
 require("colorizer").setup {}
