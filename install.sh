@@ -3,6 +3,10 @@ NVIM_DIR="$HOME/.config/nvim"
 TMUX_PATH="$HOME/.tmux.conf"
 ZSH_PATH="$HOME/.zshrc"
 current_dir=$(pwd)
+sudo apt-get update
+sudo apt-get install cmake
+sudo apt install ruby ruby-dev
+sudo gem install colorls
 function linkingTmux(){
         if [ -e "$HOME/.tmux.conf" ]
         then
@@ -121,4 +125,6 @@ echo "setup finish"
 else 
     echo "this machine might be windows try running install.batch"
 fi
-
+cd $HOME/dotfiles
+echo "opening nvim"
+nvim 
