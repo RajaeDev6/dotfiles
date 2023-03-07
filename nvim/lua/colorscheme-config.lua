@@ -1,3 +1,3 @@
-vim.cmd[[colorscheme gruvbox]]
+vim.cmd[[colorscheme eva01]]
 vim.cmd[[highlight Cursorline gui=underline ctermbg=NONE guibg=NONE]]
 vim.cmd([[hi Normal guibg=NONE cterm=NONE]])
