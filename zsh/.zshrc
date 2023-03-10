@@ -33,7 +33,7 @@ alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias explorer="explorer.exe"
 alias subl="subl.exe"
 alias chrome="chrome.exe"
-alias ls="colorls --group-directories-first"
+alias lsc="colorls --group-directories-first"
 alias sc="source $HOME/.zshrc"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -41,4 +41,7 @@ alias sc="source $HOME/.zshrc"
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-tmux
+export NVM_DIR="$HOME/.nvm"
+export ANDROID_HOME="/mnt/c/users/dell/appdata/local/android/sdk"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

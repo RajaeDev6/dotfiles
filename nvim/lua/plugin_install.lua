@@ -12,7 +12,7 @@ packer.startup( function(use)
     --colorschemes
     use {
         'morhetz/gruvbox', 'hachy/eva01.vim',
-        'ray-x/aurora'
+        'ray-x/aurora', 'sjl/badwolf'
         }
     --icons
     use 'nvim-tree/nvim-web-devicons'
