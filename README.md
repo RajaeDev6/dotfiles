@@ -59,7 +59,7 @@ I create a simple bash script [install.sh](https://github.com/RajaeDev6/dotfiles
 
 ### clone repo
 ---
-    git clone https://github.com/yahoo100kkk/dotfiles.git
+    git clone https://github.com/RajaeDev6/dotfiles.git
 ---
 ### run the install script 
 ---
