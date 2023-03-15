@@ -53,7 +53,7 @@ Plugins that i use:
 
 ## Installation
 
-I create a simple bash script [install.sh](https://github.com/yahoo100kkk/dotfiles/blob/main/install.sh "installation script") to install all packages that i use to setup my work environment, this script automatically configure all settings to neovim, tmux, zsh and everything that i use.
+I create a simple bash script [install.sh](https://github.com/RajaeDev6/dotfiles/blob/main/install.sh "installation script") to install all packages that i use to setup my work environment, this script automatically configure all settings to neovim, tmux, zsh and everything that i use.
 
 **Note!!** that this script is very messy and as i just learn bash and thought this was a good little project to do so i wouldn't reccommend using it. If you look it over and decides to use it. Use at you own risk.
 
