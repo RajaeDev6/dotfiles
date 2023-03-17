@@ -35,8 +35,8 @@ keymap('v', 'jj', '<Esc>')
 keymap('n', '<leader>sv', ':so %<CR>')
 
 -- jump forward to identical word
-keymap('n', 'jf', 'g*')
-keymap('n', 'jb', 'g#')
+-- keymap('n', 'jf', 'g*')
+-- keymap('n', 'jb', 'g#')
 
 --search and replace
 keymap('n', "<leader>sr", ":%s/")
