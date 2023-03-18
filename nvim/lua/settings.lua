@@ -25,6 +25,8 @@ local options = {
 	completeopt='menuone,noinsert,noselect',
 	incsearch = true,
 	undofile = true,
+    spelllang = 'en_us',
+    spell = true
 }
 for option, value in pairs(options) do
 	vim.opt[option] = value

@@ -20,7 +20,7 @@ keymap('n', '<leader>frr', ':Files<CR>')
 
 --open nvim-tree file explorer
 keymap('n', '<leader>e', ':NvimTreeToggle<CR>')
-keymap('n', '<leader>ee', ':NvimTreeFindFile<CR>')
+keymap('n', '<leader>ee', ':NvimTreeFocus<CR>')
 
 --save file
 keymap('n', 'ss', ':w<CR>')
@@ -53,5 +53,7 @@ keymap('n', '<leader>nw', ':tabnew<CR>')
 keymap('n', 'nb', ':BufferClose<CR>')
 keymap('n', '<leader>vv', ':BufferPrevious<CR>')
 
+--insert new line in normal mode
+keymap('n','<leader>o', 'o<esc>')
 --toggle prettier
 keymap('n', '<leader>fm', ':Prettier<CR>')

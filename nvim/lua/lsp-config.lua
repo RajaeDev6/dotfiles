@@ -17,7 +17,13 @@ lspconfig.lua_ls.setup{
     on_attach = on_attach,
     capabilities = capabilities
 }
+
 lspconfig.bashls.setup{
+    on_attach = on_attach,
+    capabilities = capabilities
+}
+
+lspconfig.marksman.setup{
     on_attach = on_attach,
     capabilities = capabilities
 }
@@ -28,22 +34,28 @@ lspconfig.solargraph.setup {
 }
 lspconfig.astro.setup{
     on_attach = on_attach,
-    capabilities = capabilities 
+    capabilities = capabilities
 }
 lspconfig.html.setup{
     on_attach = on_attach,
-    capabilities = capabilities 
+    capabilities = capabilities
 }
 
 lspconfig.pyright.setup{
     on_attach = on_attach,
-    capabilities = capabilities 
+    capabilities = capabilities
 }
 lspconfig.tsserver.setup{
     on_attach = on_attach,
-    capabilities = capabilities 
+    filetypes = { "typescript", "javascript", "javascriptreact","typescriptreact", "typescript.tsx","javascript.jsx" },
+    cmd = { "typescript-language-server", "--stdio" },
+    capabilities = capabilities
 }
 lspconfig.cssls.setup{
+    on_attach = on_attach,
+    capabilities = capabilities
+}
+lspconfig.cssmodules_ls.setup{
     on_attach = on_attach,
     capabilities = capabilities
 }
@@ -58,7 +70,8 @@ lspconfig.clangd.setup{
 }
 lspconfig.eslint.setup{
     on_attach = on_attach,
-    capabilities = capabilities 
+    filetypes = { 'html', 'typescriptreact', 'javascriptreact','typescript','javascript', 'css', 'sass', 'scss', 'less' },
+    capabilities = capabilities
 }
 lspconfig.emmet_ls.setup({
     -- on_attach = on_attach,
