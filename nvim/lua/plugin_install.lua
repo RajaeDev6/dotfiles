@@ -1,25 +1,24 @@
 local status, packer = pcall(require, "packer")
 if (not status) then
-print('packer not installed')
+    print('packer not installed')
     return
 end
 
 vim.cmd [[packadd packer.nvim]]
 
-packer.startup( function(use)
-
+packer.startup(function(use)
     use 'wbthomason/packer.nvim'
     --colorschemes
     use {
         'morhetz/gruvbox', 'hachy/eva01.vim',
         'ray-x/aurora', 'sjl/badwolf'
-        }
+    }
     --icons
     use 'nvim-tree/nvim-web-devicons'
-    --tree for folder     
+    --tree for folder
     use 'nvim-tree/nvim-tree.lua'
     use 'nvim-lualine/lualine.nvim'
-    
+
     use 'junegunn/fzf'
     use 'junegunn/fzf.vim'
 
@@ -27,15 +26,16 @@ packer.startup( function(use)
     --auto close tags
     use 'windwp/nvim-autopairs'
     use 'windwp/nvim-ts-autotag'
-    
+
     --tabs
     use 'romgrk/barbar.nvim'
 
     --lsp
-    use { 
-    'williamboman/mason.nvim',
-    'williamboman/mason-lspconfig.nvim',
-    'neovim/nvim-lspconfig',
+    use {
+        'williamboman/mason.nvim',
+        'williamboman/mason-lspconfig.nvim',
+        'neovim/nvim-lspconfig',
+        'jose-elias-alvarez/typescript.nvim'
     }
     --autocomplete and snippets
     use {
@@ -50,7 +50,7 @@ packer.startup( function(use)
         'L3MON4D3/LuaSnip',
         'saadparwaiz1/cmp_luasnip',
 
-       'rafamadriz/friendly-snippets',
+        'rafamadriz/friendly-snippets',
         --ultisnip
         --'quangnguyen30192/cmp-nvim-ultisnips',
         --'SirVer/ultisnips',
@@ -66,8 +66,8 @@ packer.startup( function(use)
     --use 'nvim-lua/telescope.nvim'
     use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
 
-  -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
+    -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
     use 'jremmen/vim-ripgrep'
 
     --indentline
@@ -79,7 +79,12 @@ packer.startup( function(use)
     --emmet
     use 'aca/emmet-ls'
 
-use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = "cd app && npm install",
+        setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+        ft = { "markdown" },
+    })
 
     --comment
     use 'numToStr/Comment.nvim'
@@ -88,6 +93,8 @@ use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = fun
     use 'jose-elias-alvarez/null-ls.nvim'
     use 'MunifTanjim/prettier.nvim'
     use 'tpope/vim-fugitive'
+    --highlight todo comments
+    use "folke/todo-comments.nvim"
 end)
 
 require("colorizer").setup {}

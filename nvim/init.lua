@@ -9,3 +9,5 @@ require("snippets")
 require("mappings")
 require("telescope-config")
 require("comment-config")
+require("todo-config")
+
