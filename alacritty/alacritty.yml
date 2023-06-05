@@ -1,0 +1,56 @@
+import:
+  #- C:/users/dell/appdata/roaming/alacritty/catpuccin/catppuccin-mocha.yml
+  - C:/users/dell/appdata/roaming/alacritty/themes/themes/hyper.yaml 
+
+env:
+  TERM: xterm-256color
+live_config_reload: true
+
+window:
+  dimensions:
+    columns: 133
+    lines: 27
+  opacity: 0.89
+  padding:
+    x: 4
+    y: 25
+  dynamic_padding: false
+  decorations: none
+  resize_increments: Both
+  position:
+    x: 1
+    y: -20
+
+  #startup_mode: Maximized
+
+font:
+  normal:
+    family: "MesloLGL NF"
+    style: Regular
+  size: 13.5
+
+  dynamic_title: true
+
+
+working_directory: "C:\\users\\dell"
+
+shell:
+  program: "ubuntu.exe"
+
+mouse:
+  hide_when_typing: true
+
+selection:
+  semantic_escape_chars: ""
+
+
+key_bindings:
+  - { key: V,          mods: Alt,                  action: Paste             }
+  - { key: H,          mods: Alt,                  action: Hide              }
+  - { key: C,          mods: Alt,                  action: Copy              }
+  - { key: C,          mods: Control,              chars: "\x03"             }
+  - { key: N,          mods: Alt,                  action: CreateNewWindow   }
+  - { key: F,          mods: Control,              action: ToggleFullscreen  }
+  - { key: Q,          mods: Control,              action: Quit              }
+  - { key: Space,      mods: Control,              action: ToggleViMode      } 
+  - { key: M,          mods: Alt,                  action: Minimize          } 
