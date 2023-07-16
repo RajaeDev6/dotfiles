@@ -49,13 +49,16 @@ syntax on
 " set colorsheme
 set background=dark
 "colorscheme gruvbox
-colorscheme rosepine
+" colorscheme rosepine
+colorscheme dzo
+
 " let g:airline_theme = 'catppuccin_mocha'
 
 "highlightk
 highlight Cursorline cterm=underline gui=underline ctermbg=NONE guibg=NONE
 highlight Cursor guifg=black guibg=purple ctermbg=green
 highlight Normal guibg=NONE ctermbg=NONE
+highlight ModeMsg ctermbg=NONE 
 
 
 " Plugins
@@ -63,6 +66,11 @@ highlight Normal guibg=NONE ctermbg=NONE
 call plug#begin('~/.vim/plugged')
     " Gruvbox theme
     "Plug 'morhetz/gruvbox'
+	
+	"multiple colorscheme
+	Plug 'flazz/vim-colorschemes'
+
+	" coc
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	" dummy text
 	Plug 'RajaeDev6/DummyWords'
@@ -109,23 +117,23 @@ let mapleader = ' '
 nnoremap <silent><leader>sf :source ~/.vimrc<CR>
 
 " exit vim
-noremap <leader>q :q!<CR>
+noremap <silent> <leader>q :q!<CR>
 
 " open explorer
-nnoremap <leader>e :Lexplore<CR>
+nnoremap <silent> <leader>e :Lexplore<CR>
 
 "open files in current/sub-dir
-nnoremap <leader>ff :Files<CR>
+nnoremap <silent> <leader>ff :Files<CR>
 
 "show open buffers
 "
-nnoremap <leader>fb :Buffers<CR>
+nnoremap <silent> <leader>fb :Buffers<CR>
 
 "rip grep
-nnoremap <leader>g :Rg<CR>
+nnoremap <silent> <leader>g :Rg<CR>
 
 "switch between buffer
-nnoremap <tab> :bNext<CR>
+nnoremap <silent> <tab> :bNext<CR>
 nnoremap <silent><s-tab> :bprevious<CR>
 
 " save file
@@ -142,9 +150,9 @@ tnoremap <leader>q <C-\><C-n><C-w>c
 " search and replace
 nnoremap <leader>sr :%s/
 
-nnoremap <leader>k :nohlsearch<CR>
+nnoremap <silent> <leader>k :nohlsearch<CR>
 nnoremap <leader><leader>p :Prettier<cr>
 
 "jump to definition
 nnoremap jd <cmd>LspPeekDefinition<CR>
-nnoremap <c-a> ggVG
+nnoremap <silent> <c-a> ggVG
