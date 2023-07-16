@@ -1,0 +1,20 @@
+#!/bin/bash
+
+DIR="$HOME/Pictures/wallpaper"
+
+if [ -d "$DIR" ]; then
+	images=()
+
+	for image in "$DIR"/*; do
+		if [ -f $image ]; then
+			images+=("$image")
+		fi
+	done
+
+	random_index=$(( RANDOM % ${#images[@]} ))
+	random_image=${images[random_index]}
+
+	wal -i "$random_image"
+else
+	echo "directory not found"
+fi
