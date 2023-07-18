@@ -26,8 +26,17 @@ set ruler
 " Menu at the bottom
 set wildmenu
 
+" Searching
 set hlsearch
 set incsearch
+set ignorecase 
+
+" Folding
+set nofoldenable
+set foldlevelstart=99
+set foldmethod=indent
+
+" completion
 set completeopt+=menuone,menu,noinsert
 
 set cursorline
@@ -48,29 +57,28 @@ syntax on
 
 " set colorsheme
 set background=dark
-"colorscheme gruvbox
 " colorscheme rosepine
+" colorscheme catppuccin_frappe
 colorscheme dzo
-
 " let g:airline_theme = 'catppuccin_mocha'
 
 "highlightk
 highlight Cursorline cterm=underline gui=underline ctermbg=NONE guibg=NONE
-highlight Cursor guifg=black guibg=purple ctermbg=green
+highlight Cursor guifg=black guibg=purple ctermbg=Magenta
 highlight Normal guibg=NONE ctermbg=NONE
-highlight ModeMsg ctermbg=NONE 
+highlight ModeMsg ctermbg=NONE ctermfg=50
 
 
-" Plugins
+
+let g:fzf_layout = { "window": { "width": 0.8, "height": 30, "relative": v:true, "yoffset": 0.6 } }
+let g:fzf_colors = { "fg": ["fg", "Normal"], "bg": ["bg", "Normal"],"border": ["fg", "Keyword"] }
+
+" PLUGINS
 
 call plug#begin('~/.vim/plugged')
+	Plug 'flazz/vim-colorschemes'
     " Gruvbox theme
     "Plug 'morhetz/gruvbox'
-	
-	"multiple colorscheme
-	Plug 'flazz/vim-colorschemes'
-
-	" coc
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	" dummy text
 	Plug 'RajaeDev6/DummyWords'
@@ -109,18 +117,18 @@ endif
 
 let g:highlightedyank_highlight_duration = 200
 
-" keymaps
 
+"KEYMAPS
 
 let mapleader = ' '
 " source vimrc
 nnoremap <silent><leader>sf :source ~/.vimrc<CR>
 
 " exit vim
-noremap <silent> <leader>q :q!<CR>
+noremap <leader>q :qa!<CR>
 
 " open explorer
-nnoremap <silent> <leader>e :Lexplore<CR>
+nnoremap <leader>e :Lexplore<CR>
 
 "open files in current/sub-dir
 nnoremap <silent> <leader>ff :Files<CR>
@@ -134,7 +142,7 @@ nnoremap <silent> <leader>g :Rg<CR>
 
 "switch between buffer
 nnoremap <silent> <tab> :bNext<CR>
-nnoremap <silent><s-tab> :bprevious<CR>
+nnoremap <silent> <s-tab> :bprevious<CR>
 
 " save file
 nnoremap <c-s> :w!<CR>
@@ -145,7 +153,7 @@ nnoremap <silent><leader>hs :History<CR>
 "terminal
 nnoremap <leader>t :vert rightbelow terminal<CR>
 nnoremap <leader>h : below terminal<CR>
-tnoremap <leader>q <C-\><C-n><C-w>c
+tnoremap <silent> <leader>q <C-\><C-n><C-w>c
 
 " search and replace
 nnoremap <leader>sr :%s/
@@ -155,4 +163,56 @@ nnoremap <leader><leader>p :Prettier<cr>
 
 "jump to definition
 nnoremap jd <cmd>LspPeekDefinition<CR>
-nnoremap <silent> <c-a> ggVG
+nnoremap <c-a> ggVG
+
+
+
+
+
+vnoremap <silent> J :m '>+1<CR>gv=gv
+vnoremap <silent> K :m '<-2<CR>gv=gv
+
+nnoremap <silent> K :m -2<CR>==
+nnoremap <silent> J :m +1<CR>==
+
+" Coc 
+
+"coc - keymap
+inoremap <silent><expr> <c-n>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><c-p> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+nnoremap <silent> <leader>sd :call ShowDocumentation()<CR>
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
