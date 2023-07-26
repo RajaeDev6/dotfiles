@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIR="$HOME/Pictures/wallpaper"
+DIR="$HOME/Pictures/catppuccin"
 
 if [ -d "$DIR" ]; then
 	images=()
