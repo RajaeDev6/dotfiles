@@ -104,6 +104,9 @@ call plug#begin('~/.vim/plugged')
 
     " yank and highlight
     Plug 'machakann/vim-highlightedyank'
+
+	" editorconfig plugin
+	" Plug 'editorconfig/editorconfig-vim'
     call plug#end()
 
 "plugin settings
