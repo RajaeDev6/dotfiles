@@ -1,20 +1,73 @@
 #!/bin/bash
 
-DIR="$HOME/Pictures/catppuccin"
+WALLPAPER_DIR="$HOME/Pictures/wallpapers"
+CACHE="$HOME/.cache/wallpaper.txt"
 
-if [ -d "$DIR" ]; then
-	images=()
+function is_image() {
+    local file="$1"
+    if [[ $(file -b "$file") =~ JPEG || $(file -b "$file") =~ PNG ]]; then
+        return 0
+    else
+        return 1
+    fi
+}
 
-	for image in "$DIR"/*; do
-		if [ -f $image ]; then
-			images+=("$image")
-		fi
-	done
+function load_next_image() {
+    current_index=$(sed -n '1s/index=\([0-9]*\)/\1/p' "$CACHE")
+    next_index=$((current_index + 1))
+    if [ "$next_index" -gt "$total_images" ]; then
+        next_index=1
+    fi
+    sed -i "1s/index=$current_index/index=$next_index/" "$CACHE"
+    next_image=$(grep "^${next_index}:" "$CACHE" | cut -d ':' -f 2-)
+    echo "$next_image"
+}
 
-	random_index=$(( RANDOM % ${#images[@]} ))
-	random_image=${images[random_index]}
+function render_image() {
+    image_to_render="$1"
+    if [ -n "$image_to_render" ]; then
+        wal -i "$image_to_render"
+    else
+        echo "No images found in $WALLPAPER_DIR"
+    fi
+}
 
-	wal -i "$random_image"
+function create_cache() {
+    # Create cache file and write index
+    echo "index=1" > "$CACHE"
+    
+    # Find images in wallpaper directory and add paths to cache
+    index=1
+    for image in "$WALLPAPER_DIR"/*; do
+        if is_image "$image"; then
+            echo "${index}:${image}" >> "$CACHE"
+            ((index++))
+        fi
+    done
+    total_images=$((index - 1))
+}
+
+function check_cache() {
+    if [ -s "$CACHE" ]; then
+        if grep -q "index=" "$CACHE"; then
+            total_images=$(wc -l < "$CACHE")
+            load_next_image
+        else
+            echo "Invalid cache format. Creating a new cache file."
+            create_cache
+            load_next_image
+        fi
+    else
+        echo "No cache file found or cache file is empty. Creating a new cache file."
+        create_cache
+        load_next_image
+    fi
+}
+
+if [ -d "$WALLPAPER_DIR" ]; then
+    ls "$WALLPAPER_DIR"  # List files in the directory for manual verification
+    check_cache
+    render_image "$next_image"
 else
-	echo "directory not found"
+    echo "Directory not found: $WALLPAPER_DIR"
 fi
