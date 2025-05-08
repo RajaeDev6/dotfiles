@@ -59,15 +59,16 @@ syntax on
 set background=dark
 " colorscheme rosepine
 " colorscheme catppuccin_frappe
-colorscheme dzo
+" colorscheme dzo
 " let g:airline_theme = 'catppuccin_mocha'
+colorscheme xcodedark
 
 "highlightk
 highlight Cursorline cterm=underline gui=underline ctermbg=NONE guibg=NONE
 highlight Cursor guifg=black guibg=purple ctermbg=Magenta
 highlight Normal guibg=NONE ctermbg=NONE
 highlight ModeMsg ctermbg=NONE ctermfg=50
-
+highlight EndOfBuffer ctermbg=NONE guibg=NONE
 
 
 let g:fzf_layout = { "window": { "width": 0.8, "height": 30, "relative": v:true, "yoffset": 0.6 } }
@@ -76,18 +77,18 @@ let g:fzf_colors = { "fg": ["fg", "Normal"], "bg": ["bg", "Normal"],"border": ["
 " PLUGINS
 
 call plug#begin('~/.vim/plugged')
-	Plug 'flazz/vim-colorschemes'
     " Gruvbox theme
     "Plug 'morhetz/gruvbox'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	" dummy text
+	" Plug 'flazz/vim-colorschemes'
 	Plug 'RajaeDev6/DummyWords'
 
     "rose-pine theme
-	Plug 'rose-pine/vim'
+	" Plug 'rose-pine/vim'
 
     "catppuccin theme
-    Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+    " Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 
     "go lsp
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -167,8 +168,6 @@ nnoremap <leader><leader>p :Prettier<cr>
 "jump to definition
 nnoremap jd <cmd>LspPeekDefinition<CR>
 nnoremap <c-a> ggVG
-
-
 
 
 
