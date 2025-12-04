@@ -9,6 +9,9 @@ set nowritebackup
 " show Mode ad the bottom
 set showmode
 
+set undofile
+set undodir=~/.vim/undo
+
 "clipboard
 set clipboard=unnamedplus
 
@@ -130,6 +133,7 @@ nnoremap <silent><leader>sf :source ~/.vimrc<CR>
 
 " exit vim
 noremap <leader>q :qa!<CR>
+noremap <leader>z :q!<CR>
 
 " open explorer
 nnoremap <leader>e :Lexplore<CR>
@@ -154,11 +158,10 @@ nnoremap <c-s> :w!<CR>
 "show history of files open
 nnoremap <silent><leader>hs :History<CR>
 
-"terminal
-nnoremap <leader>t :vert rightbelow terminal<CR>
-nnoremap <leader>h : below terminal<CR>
-tnoremap <silent> <leader>q <C-\><C-n><C-w>c
-
+""terminal
+nnoremap <silent><leader>t :vert rightbelow terminal<CR>
+nnoremap <silent><leader>h : below terminal<CR>
+tnoremap <silent><leader>x <C-w>N:close!<CR>
 " search and replace
 nnoremap <leader>sr :%s/
 
@@ -188,6 +191,7 @@ inoremap <expr><c-p> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice
+
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 

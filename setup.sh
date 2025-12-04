@@ -24,8 +24,8 @@ nvm install 22
 
 echo "🌀 Installing Zoxide..."
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
-grep -qxF 'eval "$(zoxide init bash)"' ~/.bashrc || echo 'eval "$(zoxide init bash)"' >> ~/.bashrc
 grep -qxF 'export PATH="$HOME/.local/bin:$PATH"' ~/.bashrc || echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+grep -qxF 'eval "$(zoxide init bash)"' ~/.bashrc || echo 'eval "$(zoxide init bash)"' >> ~/.bashrc
 
 echo "🎨 Adding terminal art..."
 grep -qxF 'cat ~/dotfiles/art' ~/.bashrc || echo 'cat ~/dotfiles/art' >> ~/.bashrc

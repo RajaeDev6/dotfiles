@@ -2,6 +2,7 @@
 #      BASE SETTINGS
 # ===========================
 set $mod Mod1
+set $secmod Mod4
 font pango:Iosevka 12
 
 exec --no-startup-id dex --autostart --environment i3
@@ -20,10 +21,12 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # ===========================
 #      GAPS + LOOK
 # ===========================
-gaps inner 12
-gaps outer 8
-smart_gaps on
-smart_borders on
+gaps inner 4
+gaps outer 7
+# border_radius 10
+gaps top 32
+# Load Pywal colorscheme
+exec_always --no-startup-id wal -R
 
 # ===========================
 #      TERMINAL
@@ -34,11 +37,11 @@ bindsym $mod+Return exec $term
 # ===========================
 #      APPLICATION SHORTCUTS
 # ===========================
-bindsym $mod+f exec firefox
-bindsym $mod+d exec wofi --show drun
-bindsym $mod+Shift+d exec flatpak run com.discordapp.Discord
-bindsym $mod+Shift+s exec flatpak run com.spotify.Client
-bindsym $mod+c exec ~/.config/i3/change_background.sh
+
+bindsym $secmod+f exec firefox
+# bindsym $mod+d exec rofi -show drun
+bindsym $mod+d exec ~/.config/polybar/forest/scripts/launcher.sh &
+bindsym $secmod+c exec .config/i3/change_wallpaper
 
 # ===========================
 #      SCRATCHPADS
@@ -47,13 +50,14 @@ for_window [title="scratchpad_term"] move to scratchpad
 bindsym $mod+t exec kitty --title scratchpad_term
 bindsym $mod+Shift+t scratchpad show
 
+for_window [class="^.*"] border pixel 0
 # ===========================
 #      WINDOW MANAGEMENT
 # ===========================
 floating_modifier $mod
 tiling_drag modifier titlebar
 
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # focus
 bindsym $mod+j focus left
@@ -155,16 +159,29 @@ bindsym $mod+r mode "resize"
 # ===========================
 #      POLYBAR (ENABLE)
 # ===========================
-bar {
-        status_command i3status
-        mode hide
-        hidden_state hide
-}
+# bar {
+#         status_command i3status
+#         mode hide
+#         hidden_state hide
+# }
 
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec --no-startup-id setxkbmap -option caps:escape
+exec_always --no-startup-id ~/.config/polybar/launch.sh --forest
 
 # ===========================
 #      PICOM + WALLPAPER
 # ===========================
 exec_always --no-startup-id picom --experimental-backends
-exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper.jpg
+exec_always --no-startup-id feh --bg-fill "$(cat $HOME/.cache/wal/wal)"
+
+
+# ===========================
+#     SCREENSHOT 
+# ===========================
+bindsym Print exec scrot ~/Pictures/screenshot-%Y-%m-%d-%H%M%S.png
+bindsym Shift+Print exec scrot -s ~/Pictures/screenshot-%Y-%m-%d-%H%M%S.png
+
+
+for_window [class="scratchpad"] floating enable, resize set 1200 700, move position center
+bindsym F12 exec --no-startup-id kitty --class=scratchpad -e tmux
+bindsym F11 scratchpad show
