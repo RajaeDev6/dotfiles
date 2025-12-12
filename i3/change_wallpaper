@@ -16,6 +16,7 @@ function load_next_image() {
     current_index=$(sed -n '1s/index=\([0-9]*\)/\1/p' "$CACHE")
     next_index=$((current_index + 1))
     if [ "$next_index" -gt "$total_images" ]; then
+		create_cache
         next_index=1
     fi
     sed -i "1s/index=$current_index/index=$next_index/" "$CACHE"
