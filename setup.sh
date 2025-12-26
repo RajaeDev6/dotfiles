@@ -38,6 +38,9 @@ echo "Adding terminal art..."
 grep -qxF 'cat ~/dotfiles/art' "$BASHRC" || \
   echo 'cat ~/dotfiles/art' >> "$BASHRC"
 
+grep -qxF 'set -o vi' "$BASHRC" || \
+  echo 'set -o vi"' >> "$BASHRC"
+
 echo "Installing Go (safe, non-blocking)..."
 ARCH="$(uname -m)"
 case "$ARCH" in
@@ -90,6 +93,8 @@ ln -sf "$DOTFILES/i3/config" ~/.config/i3/config
 echo "Adding config edit aliases..."
 if ! grep -q "dotfile edit aliases" "$BASHRC"; then
 cat >> "$BASHRC" <<'EOF'
+
+
 
 # >>> dotfile edit aliases >>>
 alias vc="vim ~/dotfiles/.vimrc"
