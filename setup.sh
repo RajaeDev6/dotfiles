@@ -4,7 +4,7 @@ set -e
 DOTFILES="$HOME/dotfiles"
 BASHRC="$HOME/.bashrc"
 
-echo "🚀 Installing Starship..."
+echo "Installing Starship..."
 curl -sS https://starship.rs/install.sh | sh
 mkdir -p ~/.config
 touch ~/.config/starship.toml
@@ -12,7 +12,7 @@ starship preset pure-preset -o ~/.config/starship.toml
 grep -qxF 'eval "$(starship init bash)"' "$BASHRC" || \
   echo 'eval "$(starship init bash)"' >> "$BASHRC"
 
-echo "🧠 Setting up Vim..."
+echo "Setting up Vim..."
 cp "$DOTFILES/.vimrc" ~/.vimrc
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -20,31 +20,31 @@ mkdir -p ~/.vim/colors
 wget -q https://raw.githubusercontent.com/lunacookies/vim-colors-xcode/master/colors/xcodedark.vim \
   -O ~/.vim/colors/xcodedark.vim
 
-echo "📦 Installing NVM & Node.js..."
+echo "Installing NVM & Node.js..."
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 # shellcheck source=/dev/null
 . "$NVM_DIR/nvm.sh"
 nvm install 22
 
-echo "🌀 Installing Zoxide..."
+echo "Installing Zoxide..."
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 grep -qxF 'export PATH="$HOME/.local/bin:$PATH"' "$BASHRC" || \
   echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$BASHRC"
 grep -qxF 'eval "$(zoxide init bash)"' "$BASHRC" || \
   echo 'eval "$(zoxide init bash)"' >> "$BASHRC"
 
-echo "🎨 Adding terminal art..."
+echo "Adding terminal art..."
 grep -qxF 'cat ~/dotfiles/art' "$BASHRC" || \
   echo 'cat ~/dotfiles/art' >> "$BASHRC"
 
-echo "🧰 Installing Go (safe, non-blocking)..."
+echo "Installing Go (safe, non-blocking)..."
 ARCH="$(uname -m)"
 case "$ARCH" in
   x86_64) GO_ARCH="amd64" ;;
   aarch64|arm64) GO_ARCH="arm64" ;;
   *)
-    echo "⚠ Unsupported architecture: $ARCH (skipping Go)"
+    echo "Unsupported architecture: $ARCH (skipping Go)"
     GO_ARCH=""
     ;;
 esac
@@ -60,14 +60,14 @@ if [ -n "$GO_ARCH" ]; then
       grep -qxF 'export PATH=$PATH:/usr/local/go/bin' "$BASHRC" || \
         echo 'export PATH=$PATH:/usr/local/go/bin' >> "$BASHRC"
     else
-      echo "⚠ Go download failed, skipping Go install"
+      echo "Go download failed, skipping Go install"
     fi
   else
-    echo "⚠ Could not determine Go version, skipping Go install"
+    echo "Could not determine Go version, skipping Go install"
   fi
 fi
 
-echo "🔗 Setting up dotfile symlinks..."
+echo "Setting up dotfile symlinks..."
 
 # Vim
 [ -L ~/.vimrc ] && rm ~/.vimrc
@@ -87,7 +87,7 @@ mkdir -p ~/.config/i3
 [ -L ~/.config/i3/config ] && rm ~/.config/i3/config
 ln -sf "$DOTFILES/i3/config" ~/.config/i3/config
 
-echo "🧩 Adding config edit aliases..."
+echo "Adding config edit aliases..."
 if ! grep -q "dotfile edit aliases" "$BASHRC"; then
 cat >> "$BASHRC" <<'EOF'
 
@@ -101,6 +101,6 @@ alias ic="vim ~/dotfiles/i3/config"
 EOF
 fi
 
-echo "✅ Setup complete"
-echo "➡ Run: source ~/.bashrc"
-echo "➡ Verify Go (if installed): go version"
+echo "Setup complete"
+echo "Run: source ~/.bashrc"
+echo "Verify Go (if installed): go version"
