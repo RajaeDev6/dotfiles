@@ -29,6 +29,9 @@ grep -qxF 'eval "$(zoxide init bash)"' ~/.bashrc || echo 'eval "$(zoxide init ba
 
 echo "🎨 Adding terminal art..."
 grep -qxF 'cat ~/dotfiles/art' ~/.bashrc || echo 'cat ~/dotfiles/art' >> ~/.bashrc
+echo "Setting up tmux"
+rm ~/.tmux.conf
+cp ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
 
 echo "✅ Setup complete! Run:"
 echo "source ~/.bashrc"
