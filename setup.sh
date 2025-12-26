@@ -100,7 +100,10 @@ alias ic="vim ~/dotfiles/i3/config"
 
 EOF
 fi
+sudo mkdir -p ~/.vim/pack/colors/start/eyun
+sudo git clone https://github.com/RajaeDev6/eyun.vim ~/.vim/pack/colors/start/eyun
 
 echo "Setup complete"
 echo "Run: source ~/.bashrc"
 echo "Verify Go (if installed): go version"
+

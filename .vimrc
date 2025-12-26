@@ -64,7 +64,7 @@ set background=dark
 " colorscheme catppuccin_frappe
 " colorscheme dzo
 " let g:airline_theme = 'catppuccin_mocha'
-colorscheme xcodedark
+colorscheme eyun 
 
 "highlightk
 highlight Cursorline cterm=underline gui=underline ctermbg=NONE guibg=NONE
